@@ -68,9 +68,6 @@ http://hanoi.laas.fr:8080/v1.3/talos_randomMove_flat.tar
 
 The [first section](https://github.com/Unity-Billal-mesloub/docker-loco3d#test-scenario-description) of the guide describe the various scenarios used. The [second section](https://github.com/Unity-Billal-mesloub/docker-loco3d#generated-data) describe the data stored and how to use them.
 
-# Test scenario description
-
-The image currently available use the robot Talos (urdf 'talos_reduced') for all the scenarios, the models can be found in https://gepgitlab.laas.fr/pyrene-dev/talos_data .
 
 ## `talos_circle` :
 
