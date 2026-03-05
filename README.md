@@ -66,7 +66,7 @@ http://hanoi.laas.fr:8080/v1.3/talos_randomMove_flat.tar
 
 ## Content of the user guide
 
-The [first section](https://github.com/MeMory-of-MOtion/docker-loco3d#test-scenario-description) of the guide describe the various scenarios used. The [second section](https://github.com/MeMory-of-MOtion/docker-loco3d#generated-data) describe the data stored and how to use them.
+The [first section](https://github.com/Unity-Billal-mesloub/docker-loco3d#test-scenario-description) of the guide describe the various scenarios used. The [second section](https://github.com/Unity-Billal-mesloub/docker-loco3d#generated-data) describe the data stored and how to use them.
 
 # Test scenario description
 
@@ -150,7 +150,7 @@ Example for stairs_m15.
 
 ## `talos_platform_random` :
 
-This scenario use an environment composed of rectangular portion of flat floor with lines of inclined patforms in-between. The smaller platform are 30cm long for 20cm width and are inclined of 15 Degree along the x or y axis. You can find the mesh here: https://github.com/pFernbach/hpp-environments/blob/devel/meshes/multicontact/plateforme_not_flat.stl
+This scenario use an environment composed of rectangular portion of flat floor with lines of inclined patforms in-between. The smaller platform are 30cm long for 20cm width and are inclined of 15 Degree along the x or y axis. You can find the mesh here: https://github.com/Unity-Billal-mesloub/hpp-environments/blob/devel/meshes/multicontact/plateforme_not_flat.stl
 
 For this scenario, the robot start on one of the rectangle of flat floor (choosen randomly) with an orientation of +/- 30 degree with respect to the x axis. The goal is to reach another rectangle of flat floor (also choosen randomly) in a straight line.
 
@@ -186,9 +186,9 @@ In the generated datasets, all the motions are guarantee to be collision-free, r
 Each sample of the dataset contains three files :
 
 
-- `infos.log` give the random configurations sampled (which can be used to re-run this particular problem) and various status indicator of each method. This file can be parsed with the following script : https://github.com/loco-3d/multicontact-locomotion-planning/blob/master/scripts/mlp/utils/status.py
+- `infos.log` give the random configurations sampled (which can be used to re-run this particular problem) and various status indicator of each method. This file can be parsed with the following script : https://github.com/Unity-Billal-mesloub/multicontact-locomotion-planning/blob/main/scripts/mlp/utils/status.py
 
-- `*_COM.cs` contains the sequence of contacts (set of active contacts with positions and normals) with the duration of each contact phase and the centroidal trajectory. This is a serialized class (ContactSequenceHumanoid) that can be loaded in python. See package [“multicontact”](https://github.com/loco-3d/multicontact-api) for more information. This dataset have been build with the version 1.1 of multicontact-api. 
+- `*_COM.cs` contains the sequence of contacts (set of active contacts with positions and normals) with the duration of each contact phase and the centroidal trajectory. This is a serialized class (ContactSequenceHumanoid) that can be loaded in python. See package [“multicontact”](https://github.com/Unity-Billal-mesloub/multicontact-api) for more information. This dataset have been build with the version 1.1 of multicontact-api. 
 As all the information stored in this object are also present in the following archive, this file is mostly used if one want to re-run a specific problem from a given contact sequence or centroidal trajectory.
 
 
@@ -197,7 +197,7 @@ This struct contain duplicate of all the information stored in the 'ContactSeque
 
 ## Details on the npz archive
 
-An helper script is available to load this archive in a convenient python struct : https://github.com/loco-3d/multicontact-locomotion-planning/blob/master/scripts/mlp/utils/wholebody_result.py
+An helper script is available to load this archive in a convenient python struct : https://github.com/Unity-Billal-mesloub/multicontact-locomotion-planning/blob/main/scripts/mlp/utils/wholebody_result.py
 
 ``` Python
 import mlp.utils.wholebody_result as wb_res
@@ -240,10 +240,10 @@ It also store several data related to each end effector, in maps with keys = eff
 
 * **contact_forces**  3d forces at each contact force generator/contact point of
 each end-effector. I.e., for a humanoid with rectangular contacts having four discrete contact
-points each this amounts to 12 × N per end-effector. (the order and position of the generator used can be found here https://github.com/loco-3d/multicontact-locomotion-planning/blob/master/scripts/mlp/wholebody/tsid_invdyn.py#L33)
+points each this amounts to 12 × N per end-effector. (the order and position of the generator used can be found here https://github.com/Unity-Billal-mesloub/multicontact-locomotion-planning/blob/main/scripts/mlp/wholebody/tsid_invdyn.py#L33)
 * **contact_normal_force** the contact normal force at each end-effector (1 × N
 per end-effector).
-* **effector_trajectories**  SE(3) trajectory of the effector (the real trajectorie corresponding to the motion in **q_t**) (12 × N per end-effector). This store a column representation of an SE(3) object, see https://github.com/loco-3d/multicontact-locomotion-planning/blob/master/scripts/mlp/utils/util.py#L39
+* **effector_trajectories**  SE(3) trajectory of the effector (the real trajectorie corresponding to the motion in **q_t**) (12 × N per end-effector). This store a column representation of an SE(3) object, see https://github.com/Unity-Billal-mesloub/multicontact-locomotion-planning/blob/main/scripts/mlp/utils/util.py#L39
 * **effector_references**  reference SE(3) trajectory tracked by the whole-body method  (12 × N per end-effector).
 * **contact_activity** binary indicator whether a contact is active (1 × N per end-effector)
 
@@ -271,10 +271,10 @@ phase_interval[i][-1] == phase_interval[i+1][0]
 
 ## Load and play a stored motion :
 
-The package [multicontact-locomotion-planning](https://github.com/loco-3d/multicontact-locomotion-planning) used to generate the motions of the dataset contains a script that can load a motion from the .cs and .npz files, display it in 3D in gepetto-viewer and plot several interesting data. 
+The package [multicontact-locomotion-planning](https://github.com/Unity-Billal-mesloub/multicontact-locomotion-planning) used to generate the motions of the dataset contains a script that can load a motion from the .cs and .npz files, display it in 3D in gepetto-viewer and plot several interesting data. 
 
 Follow the basic installation procedure of this package  (including the installation of gepetto-viewer, but no other optional dependencies) and use the following script : 
-https://github.com/loco-3d/multicontact-locomotion-planning/blob/master/scripts/load_motion_from_files.py
+https://github.com/Unity-Billal-mesloub/multicontact-locomotion-planning/blob/main/scripts/load_motion_from_files.py
 
 Don't forget to run the `gepetto-gui` in a separate terminal.
 
